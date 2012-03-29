@@ -309,7 +309,7 @@ For details on how we accomplish this, see the source."
 With arg, turn tab-highlighting on if arg is positive, off otherwise.
 This supercedes (require 'show-wspace) and show-ws-highlight-tabs."
   :init-value nil :lighter nil :keymap nil
-  (if ethan-wspace-highlight-tabs-mode
+  (if (and (not indent-tabs-mode) ethan-wspace-highlight-tabs-mode)
       (font-lock-add-keywords nil (list ethan-wspace-type-tabs-keyword))
     (font-lock-remove-keywords nil (list ethan-wspace-type-tabs-keyword)))
   (font-lock-fontify-buffer))
